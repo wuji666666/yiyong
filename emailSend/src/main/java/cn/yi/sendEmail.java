@@ -9,59 +9,59 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
+//yiyong
 public class sendEmail {
 
 	public static void main(String[] args) throws MessagingException {
-		//ÓÊ¼ş·şÎñÆ÷Ö÷»ú
-		//´«ÊäĞ­ÒéSMTP£¨simple mail transfer protocol)
-		//ÓÊÏäÈÏÖ¤ÊÚÈ¨
-		//·¢¼şÈËµØÖ·
-		//ÊÕ¼şÈËµØÖ·
-		//ÊÕ¼şÈËÓÊÏä
-		//ÓÊ¼şÖ÷Ìâ
-		//ÓÊ¼şÄÚÈİ
+		//é‚®ä»¶æœåŠ¡å™¨ä¸»æœº
+		//ä¼ è¾“åè®®SMTPï¼ˆsimple mail transfer protocol)
+		//é‚®ç®±è®¤è¯æˆæƒ
+		//å‘ä»¶äººåœ°å€
+		//æ”¶ä»¶äººåœ°å€
+		//æ”¶ä»¶äººé‚®ç®±
+		//é‚®ä»¶ä¸»é¢˜
+		//é‚®ä»¶å†…å®¹
 		
-		//´´½¨Ò»¸öÎÄ¼ş
+		//åˆ›å»ºä¸€ä¸ªæ–‡ä»¶
 		Properties pro=new Properties();
 		pro.setProperty("mail.host", "smtp.qq.com");
 		pro.setProperty("mail.transport.protocol", "smtp");
 		pro.setProperty("mail.smtp.auth", "true");
 		
 		
-		//´´½¨ÈÏÖ¤¶ÔÏó
+		//åˆ›å»ºè®¤è¯å¯¹è±¡
 		Auth auth=new Auth();
-		//»ñÈ¡Ò»¸ösession»á»°¶ÔÏó
+		//è·å–ä¸€ä¸ªsessionä¼šè¯å¯¹è±¡
 		
 		Session session=Session.getDefaultInstance(pro, auth);
 		
-		//»ñÈ¡Á¬½Ó
+		//è·å–è¿æ¥
 		Transport ts=session.getTransport();
-		//Á¬½Ó·şÎñÆ÷
+		//è¿æ¥æœåŠ¡å™¨
 		ts.connect("smtp.qq.com", "2214222026@qq.com", "uexqzfttgogweafc");
 		
-		//´´½¨ÓÊ¼ş¶ÔÏó
+		//åˆ›å»ºé‚®ä»¶å¯¹è±¡
 		MimeMessage message=new MimeMessage(session);
-		//ÉèÖÃ·¢¼şÈËµØÖ·
+		//è®¾ç½®å‘ä»¶äººåœ°å€
 		message.setFrom(new InternetAddress("2214222026@qq.com"));
 		
 		
-		//ÉèÖÃÊÕ¼şÈËµØÖ·
+		//è®¾ç½®æ”¶ä»¶äººåœ°å€
 		//message.setRecipient(Message.RecipientType.TO, new InternetAddress("2214222026@qq.com"));
 		
-		//Èº·¢ÓÊ¼ş
+		//ç¾¤å‘é‚®ä»¶
 		InternetAddress[] address= {new InternetAddress("2214222026@qq.com"),new InternetAddress("123985354@qq.com")};
 		message.setRecipients(Message.RecipientType.TO, address);
-		//ÉèÖÃÓÊ¼ş±êÌâ
+		//è®¾ç½®é‚®ä»¶æ ‡é¢˜
 		message.setSubject("java emailSend test");
 		
-		//ÉèÖÃÓÊ¼şÄÚÈİ
-		message.setContent("²âÊÔÓÊ¼ş·¢ËÍ", "text/html;charset=utf-8");
+		//è®¾ç½®é‚®ä»¶å†…å®¹
+		message.setContent("æµ‹è¯•é‚®ä»¶å‘é€", "text/html;charset=utf-8");
 
-		//·¢ËÍÓÊ¼ş
+		//å‘é€é‚®ä»¶
 		ts.sendMessage(message,message.getAllRecipients());
 		ts.close();
-		System.out.println("ÓÊ¼ş·¢ËÍÍê±Ï");
+		System.out.println("é‚®ä»¶å‘é€å®Œæ¯•");
 		
 		
 	}
