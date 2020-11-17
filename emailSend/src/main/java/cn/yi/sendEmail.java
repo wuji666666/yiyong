@@ -9,7 +9,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-//yiyong+ziyan
+//yiyong+ggg
 public class sendEmail {
 
 	public static void main(String[] args) throws MessagingException {
