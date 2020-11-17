@@ -9,59 +9,59 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-//yiyong
+//yiyong+ziyan
 public class sendEmail {
 
 	public static void main(String[] args) throws MessagingException {
-		//邮件服务器主机
-		//传输协议SMTP（simple mail transfer protocol)
-		//邮箱认证授权
-		//发件人地址
-		//收件人地址
-		//收件人邮箱
-		//邮件主题
-		//邮件内容
+		//閭欢鏈嶅姟鍣ㄤ富鏈�
+		//浼犺緭鍗忚SMTP锛坰imple mail transfer protocol)
+		//閭璁よ瘉鎺堟潈
+		//鍙戜欢浜哄湴鍧�
+		//鏀朵欢浜哄湴鍧�
+		//鏀朵欢浜洪偖绠�
+		//閭欢涓婚
+		//閭欢鍐呭
 		
-		//创建一个文件
+		//鍒涘缓涓�涓枃浠�
 		Properties pro=new Properties();
 		pro.setProperty("mail.host", "smtp.qq.com");
 		pro.setProperty("mail.transport.protocol", "smtp");
 		pro.setProperty("mail.smtp.auth", "true");
 		
 		
-		//创建认证对象
+		//鍒涘缓璁よ瘉瀵硅薄
 		Auth auth=new Auth();
-		//获取一个session会话对象
+		//鑾峰彇涓�涓猻ession浼氳瘽瀵硅薄
 		
 		Session session=Session.getDefaultInstance(pro, auth);
 		
-		//获取连接
+		//鑾峰彇杩炴帴
 		Transport ts=session.getTransport();
-		//连接服务器
+		//杩炴帴鏈嶅姟鍣�
 		ts.connect("smtp.qq.com", "2214222026@qq.com", "uexqzfttgogweafc");
 		
-		//创建邮件对象
+		//鍒涘缓閭欢瀵硅薄
 		MimeMessage message=new MimeMessage(session);
-		//设置发件人地址
+		//璁剧疆鍙戜欢浜哄湴鍧�
 		message.setFrom(new InternetAddress("2214222026@qq.com"));
 		
 		
-		//设置收件人地址
+		//璁剧疆鏀朵欢浜哄湴鍧�
 		//message.setRecipient(Message.RecipientType.TO, new InternetAddress("2214222026@qq.com"));
 		
-		//群发邮件
+		//缇ゅ彂閭欢
 		InternetAddress[] address= {new InternetAddress("2214222026@qq.com"),new InternetAddress("123985354@qq.com")};
 		message.setRecipients(Message.RecipientType.TO, address);
-		//设置邮件标题
+		//璁剧疆閭欢鏍囬
 		message.setSubject("java emailSend test");
 		
-		//设置邮件内容
-		message.setContent("测试邮件发送", "text/html;charset=utf-8");
+		//璁剧疆閭欢鍐呭
+		message.setContent("娴嬭瘯閭欢鍙戦��", "text/html;charset=utf-8");
 
-		//发送邮件
+		//鍙戦�侀偖浠�
 		ts.sendMessage(message,message.getAllRecipients());
 		ts.close();
-		System.out.println("邮件发送完毕");
+		System.out.println("閭欢鍙戦�佸畬姣�");
 		
 		
 	}
